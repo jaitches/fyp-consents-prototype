@@ -1,0 +1,47 @@
+
+{% extends "layout_unbranded_consents.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/consnets-data-providers" method="post" novalidate>
+        {{ govukCheckboxes({
+          idPrefix: "consent-1",
+          name: "consents-store-search",
+          fieldset: {
+            legend: {
+              text: "Do you consent to this statements about your pension provider?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select the statements that you consent to. To use this service you must agree to these statements."          
+          },
+          items: [
+            {
+              value: "data-provider-check",
+              text: "I consent to my pension providers checking that I have consented to [dashboard provider] displaying my pension information"
+            }
+          ]
+        }) }}
+
+        <p>
+          To use this service you must agree to this statement
+        </p>
+
+        <div class="govuk-button-group">
+          <a href="enter-your-details" role="button" draggable="false" class="govuk-button pdp_button_consents">
+            Continue
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
