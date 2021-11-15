@@ -159,6 +159,7 @@ app.locals.promoMode = promoMode
 app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
 app.locals.serviceNameConsents = config.serviceNameConsents
+app.locals.serviceNameIdentity = config.serviceNameIdentity
 
 // extensionConfig sets up variables used to add the scripts and stylesheets to each page.
 app.locals.extensionConfig = extensions.getAppConfig()

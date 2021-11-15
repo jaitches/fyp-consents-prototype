@@ -7,6 +7,7 @@ const uri = 'mongodb+srv://' + process.env.MONGODB_URI + '?ssl=true&retryWrites=
 const dataBaseName = process.env.PENSIONS_DB
 const formatDate = require('./formatDate.js')
 const getPrototypeDetails = require('./getPrototypeDetails.js')
+const countryListJson = require('./countryList.json')
 
 // Use these arrays to store the options for the select element when updating the pensions
 // also populates the session variables for descriptions
@@ -65,7 +66,6 @@ const penAccrAmtType = [
 // ****** routes for main pages and prototypes
 //
 
-// start page
 router.get('/', function (req, res) {
     switch (process.env.PENSIONS_DB) {
         case "pdp-test":
@@ -85,6 +85,49 @@ router.get('/', function (req, res) {
     res.render('index')
 
 })
+
+//
+// identity pages
+//
+
+router.get('/identity/select-id-document', function (req, res) {
+    
+    req.app.locals.countryList = countryListJson.countries
+    res.render('./identity/select-id-document')
+
+})
+
+router.post('/select-id-document', function (req, res) {
+    console.log("****** select id *******")
+    const typeOfId = req.session.data['type-of-id']
+    if (typeOfId == "driving-licence") {
+        req.app.locals.IdType = 'Driving licence'
+    }
+    else if (typeOfId == "passport") {
+        req.app.locals.IdType = 'Passport'
+    }
+    else {
+        req.app.locals.IdType = 'Biomedical residence permit'
+    }
+    res.redirect('/identity/take-photo-id')
+})
+
+
+//
+// consent and authorisation pages
+//
+
+router.post('/consents-c-and-a', function (req, res) {
+
+    const consentsCandA = req.session.data['consents-store-search']
+    if (consentsCandA == "prototype") {
+        res.redirect('start')
+    }
+    else {
+        res.redirect('manage-pensions')
+    }
+})
+
 // if examples database selected choose which example details to show
 
 router.post('/examples-person-selection', function (req, res) {
