@@ -98,7 +98,6 @@ router.get('/identity/select-id-document', function (req, res) {
 })
 
 router.post('/select-id-document', function (req, res) {
-    console.log("****** select id *******")
     const typeOfId = req.session.data['type-of-id']
     if (typeOfId == "driving-licence") {
         req.app.locals.IdType = 'Driving licence'
@@ -109,7 +108,24 @@ router.post('/select-id-document', function (req, res) {
     else {
         req.app.locals.IdType = 'Biomedical residence permit'
     }
+    req.app.locals.frontOrBack = 'front'
     res.redirect('/identity/take-photo-id')
+})
+
+// first time through go back and do the back
+// once done the back move on to the next page
+router.post('/check-photo', function (req, res) {
+    if (req.app.locals.frontOrBack == "front") {
+        console.log('*** front id *** ' + req.app.locals.frontOrBack)
+        req.app.locals.frontOrBack = "back"
+        res.redirect('/identity/take-photo-id')
+    }
+    else {
+        res.redirect('/identity/biometric-consent')
+        console.log('*** back id *** ' + req.app.locals.frontOrBack)
+
+
+    }
 })
 
 

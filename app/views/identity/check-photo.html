@@ -10,16 +10,18 @@
 	<div class="govuk-grid-column-full">
 		{{ govukBackLink({
 			text: "Back",
-			href: "select-id-document"
+			href: "take-photo-id"
 		}) }}
 	</div>
+</div>
+<div class="govuk-grid-row">
 	<div class="govuk-grid-column-one-half">
 		
 		<h1 class="govuk-heading-l">
-			Capture your ID document (front)
+			Is this photo clear, in focus and readable?
 		</h1>
 		<p>
-			Please make sure that the photo you take:
+			Before you continue, please check that your driving licence:
 		</p>
 		<div class="govuk-grid-row">
 
@@ -43,32 +45,50 @@
 			</div>
 		</div>
 		<p></p>
-		<p>
-			Or you can <a href="upload-photo">upload a photo of your document</a> from your device.
-		</p>			
+		
 	</div>
 	<div class="govuk-grid-column-one-half pdpid-grey-background">
-		<h2 class="govuk-heading-m pdpid-center">{{IdType}} (front)</h2>
-		<p class="pdpid-center">
-			United Kingdom
-		</p>
-		<div class="pdpid-photo-box">
-			<div class="pdpid-photo-inner-box">
-				{% if IdType == "Driving licence"%}
+		<form action="/check-photo" method="post" novalidate>
+
+			<h2 class="govuk-heading-m pdpid-center">{{IdType}} ({{frontOrBack}})</h2>
+			<p class="pdpid-center">
+				United Kingdom
+			</p>
+			<div class="pdpid-photo-box">
+				<div class="pdpid-photo-inner-box">
+				{% if IdType == "Driving licence" %}
+					{% if frontOrBack == "front" %}
 					<img src="/public/images/driving-licence.jpeg" alt="Image of driving licence front">
+					{% else %}
+					<img src="/public/images/driving-licence-back.jpeg" alt="Image of driving licence back">
+					{% endif %}	
 				{% endif %}	
-				{% if IdType == "Passport"%}
+				{% if IdType == "Passport" %}
 					<img src="/public/images/passport.jpeg" alt="Image of passport front">
 				{% endif %}	
-				{% if IdType == "Biomedical residence permit"%}
-					<img src="/public/images/biomedical-residence-permit.jpeg" alt="Biomedical residence permit front">
-				{% endif %}	
+				{% if IdType == "Biomedical residence permit" %}
+					{% if frontOrBack == "front" %}
+						<img src="/public/images/biomedical-id.jpeg" alt="Biomedical residence permit front">
+					{% else %}
+						<img src="/public/images/biomedical-id-back.jpeg" alt="Biomedical residence permit back">
+					{% endif %}
+				{% endif %}
+				</div>
 			</div>
-		</div>
-		<br>
-		<a href="check-photo" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-	    	TAKE PHOTO 
-	    </a>
+			<br>
+			<a href="take-photo-id" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+		    	NO, RETAKE 
+		    </a>
+		    {% if IdType == "Driving licence" or IdType == "Biomedical residence permit" %}
+				<button class="govuk-button" data-module="govuk-button">
+			    	YES, UPLOAD 
+				</button>
+				{% else %}
+			    <a href="biometric-consent" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+			    	YES, UPLOAD 
+			    </a>
+			{% endif %}
+		</form>
 	</div>
 </div>
 {% endblock %}
