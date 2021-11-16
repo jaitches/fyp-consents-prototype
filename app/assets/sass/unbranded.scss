@@ -23,9 +23,13 @@ img {
 	margin-right: auto;
 }
 
-img.pdpid-photo-confirm {
-	display: block;
-	float: left;
+.pdpid-photo-confirm {
+	position: relative;
+}
+
+.pdpid-oval {
+	border-radius: 50%;
+	border: 5px solid blue;
 }
 
 .pdpid-rounded-corners {

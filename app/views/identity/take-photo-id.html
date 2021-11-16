@@ -44,9 +44,11 @@
 			</div>
 		</div>
 		<p></p>
-		<p>
-			Or you can <a href="upload-photo">upload a photo of your document</a> from your device.
-		</p>			
+		{% if frontOrBack == "front" %}
+			<p>
+				Or you can <a href="upload-photo">upload a photo of your document</a> from your device.
+			</p>	
+		{% endif %}	
 	</div>
 	<div class="govuk-grid-column-one-half pdpid-grey-background">
 		<h2 class="govuk-heading-m pdpid-center">{{IdType}} ({{frontOrBack}})</h2>
