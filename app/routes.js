@@ -116,13 +116,11 @@ router.post('/select-id-document', function (req, res) {
 // once done the back move on to the next page
 router.post('/check-photo', function (req, res) {
     if (req.app.locals.frontOrBack == "front") {
-        console.log('*** front id *** ' + req.app.locals.frontOrBack)
         req.app.locals.frontOrBack = "back"
         res.redirect('/identity/take-photo-id')
     }
     else {
         res.redirect('/identity/biometric-consent')
-        console.log('*** back id *** ' + req.app.locals.frontOrBack)
 
 
     }

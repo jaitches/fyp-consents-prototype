@@ -7,7 +7,7 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="/register-or-login" method="post" class="form">
+      <form action="/register-fyp" method="post" class="form">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="details-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -64,17 +64,17 @@
               name: "password-repeat",
               spellcheck: false
             }) }}
-
-      <div class="govuk-button-group">
-        <button class="govuk-button" data-module="govuk-button" data-prevent-double-click="true">
-          Continue
-        </button>
-      </div>
-      <h2 class="govuk-heading-m">
-        Already have an account?
-      </h2>
-      <p><a href="login" role="button">Sign in to your account</a></p>
-      <p></p>
+            <br>
+            <a href="consents-fyp" role="button" draggable="false" class="govuk-button pdp_button_consents">
+              Save and continue
+            </a>
+            <h2 class="govuk-heading-m">
+              Already have an account?
+            </h2>
+            <p><a href="login" role="button">Sign in to your account</a></p>
+            <p></p>
+          </fieldset>
+        </div>
     </form>
   </div>
 </div>
