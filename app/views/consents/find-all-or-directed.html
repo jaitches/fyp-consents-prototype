@@ -1,0 +1,54 @@
+
+{% extends "layout_unbranded_consents.html" %}
+
+{% block pageTitle %}
+  {{serviceName}} - 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form action="/find-all-or-directed" method="post" class=novalidate>
+            {{ govukRadios({
+              idPrefix: "which-find",
+              name: "which-find",
+              fieldset: {
+                legend: {
+                  text: "Which pensions do you want to find?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+
+                {
+                  value: "directed-find",
+                  text: "I want to select my pension provider(s) from a list",
+                  hint: {
+                    text: "We will only send your information to the pension provider(s) on the list to ask if you have a pension with them."
+                  }
+                },
+                {
+                  value: "find-all",
+                  text: "I want to find all my pensions", 
+                  hint: {
+                    text: "We will only send your information to all the pension providers connected to our service to ask if you have a pension with them."
+                  }
+                }
+              ]
+            }) }}
+
+            <br>
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

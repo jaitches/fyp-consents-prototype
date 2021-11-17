@@ -86,6 +86,23 @@ router.get('/', function (req, res) {
 
 })
 
+router.post('/which-page-to-start', function (req, res) {
+
+    const whichPage = req.session.data['which-page']
+    switch (whichPage) {
+        case "full":
+            res.redirect('/find-your-pensions/index')
+        case "consents":
+            res.redirect('/consents/index')
+        case "identity":
+            res.redirect('/identity/index')
+        case "consent-after-id":
+            res.redirect('/consents/enter-your-details')
+
+    }
+})
+
+
 //
 // identity pages
 //
@@ -112,7 +129,7 @@ router.post('/select-id-document', function (req, res) {
     res.redirect('/identity/take-photo-id')
 })
 
-// first time through go back and do the back
+// first time through return and do the back
 // once done the back move on to the next page
 router.post('/check-photo', function (req, res) {
     if (req.app.locals.frontOrBack == "front") {
@@ -121,8 +138,6 @@ router.post('/check-photo', function (req, res) {
     }
     else {
         res.redirect('/identity/biometric-consent')
-
-
     }
 })
 
@@ -131,16 +146,18 @@ router.post('/check-photo', function (req, res) {
 // consent and authorisation pages
 //
 
-router.post('/consents-c-and-a', function (req, res) {
+router.post('/find-all-or-directed', function (req, res) {
 
-    const consentsCandA = req.session.data['consents-store-search']
-    if (consentsCandA == "prototype") {
-        res.redirect('start')
-    }
-    else {
-        res.redirect('manage-pensions')
+    const whichFind = req.session.data['which-find']
+        switch (whichFind) {
+        case "directed-find":
+            res.redirect('/consents/directed-find')        
+        case "find-all":
+            res.redirect('/find-your-pensions/fyp-display-pensions')
+
     }
 })
+
 
 router.post('/consents-select-action', function (req, res) {
 
@@ -157,6 +174,7 @@ router.post('/consents-select-action', function (req, res) {
         }
 
 })
+
 
 
 // if examples database selected choose which example details to show

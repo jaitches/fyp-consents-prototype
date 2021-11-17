@@ -9,14 +9,15 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/display-or-manage-data" method="post" novalidate>
+      <form action="/which-page-to-start" method="post" novalidate>
 
           {{ govukRadios({
-            idPrefix: "what-do-you-want-to-do",
-            name: "what-do-you-want-to-do",
+            idPrefix: "which-page",
+            name: "which-page",
             fieldset: {
-              legend: {
-                text: "What do you want to do?",
+              legend: {                
+                text: "Which area of the prototype do you want to start from?",
+
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
@@ -24,12 +25,20 @@
 
             items: [
               {
-                value: "prototype",
-                text: "View the prototypes"
+                value: "full",
+                text: "The full prototype from the dashboard start"
               },
               {
-                value: "manage-data",
-                text: "Manage pension information to display on the prototype"
+                value: "consents",
+                text: "From the Manage my consents service start"
+              },
+              {
+                value: "identity",
+                text: "From the identity service"
+              },
+              {
+                value: "consent-after-id",
+                text: "From the Manage my consents service after the identity service"
               }
             ]
           }) }}
