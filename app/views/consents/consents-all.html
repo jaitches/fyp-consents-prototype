@@ -2,7 +2,7 @@
 {% extends "layout_unbranded_consents.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  {{}}
 {% endblock %}
 
 {% block content %}
@@ -10,40 +10,45 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/consents-dashboards" method="post" novalidate>
-        {{ govukCheckboxes({
-          idPrefix: "consent-1",
-          name: "consents-store-search",
-          fieldset: {
-            legend: {
-              text: "Do you consent to these statements about [dashboard provider]?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "Select the statements that you consent to. To use this service you must agree to these statements."
-          },
-          items: [
-            {
-              value: "dashboard-store",
-              text: "I consent to [dashboard provider] storing information about my pension providers"
+
+
+          {{ govukCheckboxes({
+            idPrefix: "consents",
+            name: "consents",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Manage your consents",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
             },
-            {
-              value: "dashboard-search",
-              text: "I consent to [dashboard provider] fetching my pension information from my pension providers"
-            }
-          ]
-        }) }}
+            items: [
+              {
+                value: "share-providers",
+                text: "sharing my personal identity data with the UK’s pension providers (that’s about 36,000 pension schemes) in order to find my pensions"
+              },
+              {
+                value: "tokens",
+                text: "the service making markers/tokens/identifiers relating to my identity and my pensions to use within the service "
+              },
+              {
+                value: "provider-check",
+                text: "allowing my pension providers to check with us what information I want my chosen dashboard to see"
+              },
+              {
+                value: "store-consents",
+                text: "the service storing a record of my consents "
+              }
+            ]
+          }) }}        
 
         <p>
-          To use this service you must agree to these statements
+          To use the service you must agree to all of the statements.
         </p>
-
-        <div class="govuk-button-group">
-          <a href="consents-data-providers" role="button" draggable="false" class="govuk-button pdp_button_consents">
-            Continue
-          </a>
-        </div>
+        <a href="redirect-identity" role="button" draggable="false" class="govuk-button pdp_button_consents">
+          Continue
+        </a>
       </form>
     </div>
   </div>

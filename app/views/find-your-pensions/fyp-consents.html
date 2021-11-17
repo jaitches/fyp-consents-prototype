@@ -10,38 +10,39 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/consents-dashboards" method="post" novalidate>
         <h1 class="govuk-heading-l">
-          Find my Pensions consents
+          [Dashboard name] consents
         </h1>
         <p>
-          Before you can use the Find my Pensions service you need to consent to 
+          Before you can use the Find my Pensions service you need to consent to us storing and using information about your pensions.
+        </p> 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h1 class="govuk-fieldset__heading">
-                I consent to the Find my Pensions service: 
+                I consent to [Dashboard name]: 
               </h1>
             </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-store" name="consent-to-store" type="checkbox" value="consent-to-store">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-store">
-                  Storing information [PeIs] about my pensions
+                  storing information [PeIs] about my pensions
                 </label>
 
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
-                  Using the stored information to contact my pension providers and fetch my pension details
+                  using the stored information to contact my pension providers and fetch my pension details
                 </label>
               </div>
             </div>
           </fieldset>
         </div>
         <p>
-          To use the service you must agree to these statements
+          To use the service you must agree to these statements.
         </p>
-        <a href="redirect-identity" role="button" draggable="false" class="govuk-button pdp_button_consents">
+        <a href="consents/enter-consents" role="button" draggable="false" class="govuk-button pdp_button_consents">
           Save and continue
         </a>
       </form>

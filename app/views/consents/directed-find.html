@@ -1,0 +1,32 @@
+
+{% extends "layout_unbranded_consents.html" %}
+
+{% block pageTitle %}
+  {{serviceName}} - Select which pensions to see
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form action="/enter-your-details" method="post" class="form">
+        <div class="govuk-form-group">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Select the pension providers that you have a pension with  
+                </h1>
+              </legend>
+               <br>
+          <a href="" role="button" draggable="false" class="govuk-button pdp_button_consents">
+            Continue
+          </a>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

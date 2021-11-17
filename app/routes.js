@@ -142,6 +142,23 @@ router.post('/consents-c-and-a', function (req, res) {
     }
 })
 
+router.post('/consents-select-action', function (req, res) {
+
+    const consentsSelection = req.session.data['consents-select-action']
+    switch (consentsSelection) {
+        case "find-all":
+            res.redirect('fyp-display-pensions')
+        case "directed-find":
+            res.redirect('directed-find')
+        case "delegate":
+            res.redirect('select-delegate')
+        case "manage-consents":
+            res.redirect('manage-consents')
+        }
+
+})
+
+
 // if examples database selected choose which example details to show
 
 router.post('/examples-person-selection', function (req, res) {
@@ -213,6 +230,9 @@ router.post('/select-prototype', function (req, res) {
     res.redirect(ptypeDetails.startUrl + '?ptype=' + ptypeNumber)
 
 })
+//
+// Find your pension pages
+//
 
 // enter your details
 router.post('/enter-your-details*', function (req, res) {

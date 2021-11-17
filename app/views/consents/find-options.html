@@ -1,0 +1,52 @@
+
+{% extends "layout_unbranded_consents.html" %}
+
+{% block pageTitle %}
+  {{serviceName}} - Which pensions to see
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form action="/enter-your-details" method="post" class="form">
+        <div class="govuk-form-group">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Which pensions do you want to find?   
+                </h1>
+                <p> 
+                  If you have recently started contributing to a new pension or a pension you expected to see is not displayed by the service, you can ask the service to find it from a list of pension providers.
+                </p>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="all-pensions" name="all-pensions" type="radio" value="all-pensions">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                    All of my pensions
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="directed-find" name="directed-find" type="radio" value="directed-find">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    I want to select which pensions to see from a list of pension providers
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <br>
+
+          <a href="/05-full-alt-display/05-display-pensions" role="button" draggable="false" class="govuk-button pdp_button_consents">
+            Continue
+          </a>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
