@@ -41,41 +41,59 @@
       </p>    
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <form action="/add-provider-to-list" method="post" novalidate>  
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">
-              Select the pension provider to add to your list
-            </h1>
-          </legend>
-          {% for details in searchListNames %}
-          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="provider" name="provider" type="checkbox" value="{{details}}">
-              <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                {{details}}
-              </label>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Select the pension provider to add to your list
+              </h2>
+            </legend>
+            {% for details in searchListNames %}
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="provider" name="provider" type="checkbox" value="{{details}}">
+                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                  {{details}}
+                </label>
+              </div>
             </div>
-          </div>
-          {% endfor %}
-        </fieldset>
-      </div>
-
-    {% else %}
-      {%if not firstPageLoad %}
-        <p class="govuk-heading-s">
-          There are no matching results.
+            {% endfor %}
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Add to list
+        </button>
+      </form>
+      <div id="display-list">
+        <h2 class="govuk-heading-m">
+          Your list of pension providers
+        </h2>
+        <span class="govuk-hint">
+          These are the pension providers that we will ask to see if you have a pension with them.
+        </span>
+        {% for details in directedListNames %}
+        <p>
+          {{details}}
         </p>
-        <p class="govuk-body">Improve your search results by:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>double-checking your spelling</li>
-          <li>using fewer keywords</li>
-          <li>searching for something less specific</li>
-        </ul>
-      {% endif %}
-    {% endif %}
+        {% endfor %}
 
+
+
+      {% else %}
+        {%if not firstPageLoad %}
+          <p class="govuk-heading-s">
+            There are no matching results.
+          </p>
+          <p class="govuk-body">Improve your search results by:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>double-checking your spelling</li>
+            <li>using fewer keywords</li>
+            <li>searching for something less specific</li>
+          </ul>
+        {% endif %}
+      {% endif %}
   </div>
 </div>
 
