@@ -8,6 +8,7 @@ const dataBaseName = process.env.PENSIONS_DB
 const formatDate = require('./formatDate.js')
 const getPrototypeDetails = require('./getPrototypeDetails.js')
 const countryListJson = require('./countryList.json')
+const providerListDirectedFind = require('./providerListDirectedFind.json')
 
 // Use these arrays to store the options for the select element when updating the pensions
 // also populates the session variables for descriptions
@@ -148,6 +149,7 @@ router.post('/check-photo', function (req, res) {
 
 router.post('/find-all-or-directed', function (req, res) {
 
+
     const whichFind = req.session.data['which-find']
         switch (whichFind) {
         case "directed-find":
@@ -156,6 +158,51 @@ router.post('/find-all-or-directed', function (req, res) {
             res.redirect('/find-your-pensions/fyp-display-pensions')
 
     }
+})
+
+router.post('/search-for-provider', function (req, res) {
+    // filter function
+
+    req.app.locals.firstPageLoad = false
+    let providerSearchValue = req.session.data['provider-search-value']
+    req.app.locals.providerSearchValue = providerSearchValue
+  //error if no value entered
+    if (providerSearchValue == "") {
+        req.app.locals.errorString = "Field is blank - Enter a pension provider name"
+        req.app.locals.errorFormClass = "govuk-form-group--error"  
+        req.app.locals.errorInputClass = "govuk-input--error" 
+        res.render('consents/directed-find')
+    }
+    else {
+        req.app.locals.errorString = ""
+        req.app.locals.errorFormClass = ""
+        req.app.locals.errorInputClass = "" 
+
+        // if more than one term entered make them both required to narrow down the search
+
+        if (providerSearchValue !== null) {
+            console.log('providerSearchValue ' + providerSearchValue)
+
+    // do a filtered search on the json
+
+            searchResults= filterItems( providerListDirectedFind, providerSearchValue)
+            req.app.locals.searchListNames = searchResults
+
+            if (searchResults.length > 1) {
+                req.app.locals.pensionProviderPlural = 'pension providers'
+            }
+            else {
+                req.app.locals.pensionProviderPlural = 'pension provider'
+            }
+        }
+    res.render('consents/directed-find')
+    }
+    function filterItems(arr, query) {
+      return arr.filter(function(el) {
+        return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      })
+    }
+
 })
 
 

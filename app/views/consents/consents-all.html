@@ -9,41 +9,53 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/consents-dashboards" method="post" novalidate>
-
-
-          {{ govukCheckboxes({
-            idPrefix: "consents",
-            name: "consents",
-            classes: "govuk-checkboxes--small",
-            fieldset: {
-              legend: {
-                text: "I consent to the Money and Pensions Service:",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                value: "share-providers",
-                text: "sharing my personal identity data with the UK’s pension providers (that’s about 36,000 pension schemes) in order to find my pensions"
-              },
-              {
-                value: "tokens",
-                text: "the service making markers/tokens/identifiers relating to my identity and my pensions to use within the service "
-              },
-              {
-                value: "provider-check",
-                text: "allowing my pension providers to check with us what information I want my chosen dashboard to see"
-              },
-              {
-                value: "store-consents",
-                text: "the service storing a record of my consents "
-              }
-            ]
-          }) }}        
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  I consent to the <a href="https://moneyandpensionsservice.org.uk/">Money and Pensions Service</a>:
+                </h1>
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consents" name="consents" type="checkbox" value="share-providers" aria-describedby="consents-item-hint">
+                  <label class="govuk-label govuk-checkboxes__label" for="consents">
+                    sharing my personal identity data with the UK’s pension providers in order to find my pensions
+                  </label>
+                  <div id="consents-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                    That's about 36,000 pension schemes in the UK
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consents-2" name="consents" type="checkbox" value="identity-service">
+                  <label class="govuk-label govuk-checkboxes__label" for="consents-2">
+                    using [identity service] to check you are who you say you are
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consents-3" name="consents" type="checkbox" value="tokens">
+                  <label class="govuk-label govuk-checkboxes__label" for="consents-3">
+                    the service making [markers/tokens/identifiers] relating to my identity and my pensions to use within the service
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consents-3" name="consents" type="checkbox" value="provider-check">
+                  <label class="govuk-label govuk-checkboxes__label" for="consents-3">
+                    allowing my pension providers to check with us what information I want my chosen dashboard to see
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consents-3" name="consents" type="checkbox" value="store-consents">
+                  <label class="govuk-label govuk-checkboxes__label" for="consents-3">
+                    the service storing a record of my consents
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
         <p>
-          To use the service you must agree to all of the statements.
+          To use the service you must consent to all of the statements.
         </p>
         <a href="redirect-identity" role="button" draggable="false" class="govuk-button pdp_button_consents">
           Continue
