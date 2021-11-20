@@ -8,3 +8,11 @@ if (window.console && window.console.info) {
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
 })
+
+function removeProvider() {
+	if (confirm('Do you want to remove this pension provider from your list?')) {
+	} 
+	else {
+	   return false;
+	}
+}

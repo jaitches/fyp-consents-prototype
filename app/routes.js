@@ -153,11 +153,22 @@ router.post('/find-all-or-directed', function (req, res) {
     const whichFind = req.session.data['which-find']
         switch (whichFind) {
         case "directed-find":
+            req.app.locals.firstPageLoad = true
+            req.app.locals.directedListNames =[]
             res.redirect('/consents/directed-find')        
         case "find-all":
-            res.redirect('/find-your-pensions/fyp-display-pensions')
+            res.redirect('/find-your-pensions/fyp-display')
 
     }
+})
+
+// directed find
+
+router.get('/consents/directed-find', function (req, res) {
+    req.app.locals.firstPageLoad = true
+    req.app.locals.directedListNames =[]
+    req.app.locals.providerSearchValue
+    res.render('consents/directed-find')
 })
 
 router.post('/search-for-provider', function (req, res) {
@@ -205,16 +216,41 @@ router.post('/search-for-provider', function (req, res) {
 
 })
 
+router.post('/add-provider-to-list', function (req, res) {
+    const selectedProviders = req.session.data['provider-list']
 
-router.post('/consents-select-action', function (req, res) {
+    console.log('req.app.locals.directedListNames ' + req.app.locals.directedListNames)
+    console.log('selectedProviders' + selectedProviders)
+//    console.log('providerList' + providerList)
+    if (selectedProviders) {
+        let providerList = req.app.locals.directedListNames
+        for (i=0; i < selectedProviders.length; i++) {
+            providerList.push(selectedProviders[i])
+        }
+        req.app.locals.directedListNames = providerList
+    }
+    res.render('consents/directed-find')
+
+})
+
+router.post('/remove-provider/:providerName', function (req, res) {
+    for (i=0 ; i<req.app.locals.directedListNames.length; i++ ) {
+        if (req.app.locals.directedListNames[i] == req.params.providerName)
+            req.app.locals.directedListNames.splice([i],1)
+    }
+    res.render('consents/directed-find')
+
+
+})
+
+router.post('/consents-main-menu', function (req, res) {
 
     const consentsSelection = req.session.data['consents-select-action']
     switch (consentsSelection) {
-        case "find-all":
-            res.redirect('fyp-display-pensions')
-        case "directed-find":
-            res.redirect('directed-find')
-        case "delegate":
+        case "find":
+            res.redirect('find-all-or-directed')
+        case "delegates":
+            req.app.locals.firstPageLoad = true
             res.redirect('select-delegate')
         case "manage-consents":
             res.redirect('manage-consents')

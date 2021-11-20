@@ -8,13 +8,17 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">  
+    <h1 class="govuk-heading-l">Selecting providers
+    <span class="govuk-hint">
+     Search for a pension provider that you want to add to the list for us to ask if you have a pension with them.
+    </span></h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <form action="/search-for-provider" method="post" novalidate>  
 
-      <h1 class="govuk-heading-l">What is the name of the pension provider?
-      <span class="govuk-hint">
-       Search for a pension provider that you want to add to the list for us to ask if you have a pension with them.
-      </span></h1>
 
       <div class="govuk-form-group {{errorFormClass}}" id="form-group">
         <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="provider-search-value">
@@ -44,17 +48,20 @@
       <form action="/add-provider-to-list" method="post" novalidate>  
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
+          <fieldset class="govuk-fieldset" aria-describedby="provider-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Select the pension provider to add to your list
+                Which pension providers do you want to search for?
               </h2>
             </legend>
+            <div id="provider-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
             {% for details in searchListNames %}
             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="provider" name="provider" type="checkbox" value="{{details}}">
-                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                <input class="govuk-checkboxes__input" id="provider-list" name="provider-list" type="checkbox" value="{{details}}">
+                <label class="govuk-label govuk-checkboxes__label" for="provider-list">
                   {{details}}
                 </label>
               </div>
@@ -66,34 +73,47 @@
           Add to list
         </button>
       </form>
-      <div id="display-list">
-        <h2 class="govuk-heading-m">
-          Your list of pension providers
-        </h2>
-        <span class="govuk-hint">
-          These are the pension providers that we will ask to see if you have a pension with them.
-        </span>
-        {% for details in directedListNames %}
-        <p>
-          {{details}}
+
+    {% else %}
+      {%if not firstPageLoad %}
+        <p class="govuk-heading-s">
+          There are no matching results.
         </p>
-        {% endfor %}
-
-
-
-      {% else %}
-        {%if not firstPageLoad %}
-          <p class="govuk-heading-s">
-            There are no matching results.
-          </p>
-          <p class="govuk-body">Improve your search results by:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>double-checking your spelling</li>
-            <li>using fewer keywords</li>
-            <li>searching for something less specific</li>
-          </ul>
-        {% endif %}
+        <p class="govuk-body">Improve your search results by:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>double-checking your spelling</li>
+          <li>using fewer keywords</li>
+          <li>searching for something less specific</li>
+        </ul>
       {% endif %}
+    {% endif %}
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">
+        Your list of pension providers
+      </h2>
+      <span class="govuk-hint">
+        These are the pension providers that we will ask to see if you have a pension with them.
+      </span>
+      <table class="govuk-table">
+        <tr class="govuk-table__row govuk-bod-s" >
+        {% for details in directedListNames %}
+          <td class="govuk-table__cell">{{details}}</td>
+          <td class="govuk-table__cell">
+              <form action="/remove-provider/{{details}}" method="post" class="form">
+               <button class="govuk-button govuk-button--warning" onclick="removeProvider()" data-module="govuk-button">Remove</button>
+             </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="../find-your-pensions" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Find pensions 
+      </a>
+
+
+
   </div>
 </div>
 
