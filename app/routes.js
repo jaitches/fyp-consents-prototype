@@ -96,10 +96,7 @@ router.post('/which-page-to-start', function (req, res) {
         case "consents":
             res.redirect('/consents/index')
         case "identity":
-            res.redirect('/identity/index')
-        case "consent-after-id":
-            res.redirect('/consents/enter-your-details')
-
+            res.redirect('/identity/start')
     }
 })
 

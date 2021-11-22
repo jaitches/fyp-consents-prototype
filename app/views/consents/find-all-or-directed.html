@@ -10,45 +10,66 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/find-all-or-directed" method="post" class=novalidate>
-            {{ govukRadios({
-              idPrefix: "which-find",
-              name: "which-find",
-              fieldset: {
-                legend: {
-                  text: "Which pensions do you want to find?",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend--l"
+      <h1 class="govuk-heading-l">
+        Search pension providers
+      </h1>
+
+          <p> 
+            To find your pensions we send the information you have given us to all UK pension providers (that’s about 36,000 pension schemes). They use your information to see if you have a pension with them.
+          </p>
+          {{ govukRadios({
+            idPrefix: "which-find",
+            name: "which-find",
+            fieldset: {
+              legend: {
+                text: "Which pensions do you want to find?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+
+              {
+                value: "directed-find",
+                text: "I want to select the pension provider(s) to search",
+                hint: {
+                  text: "We will only send your information to the pension provider(s) you select, to ask if you have a pension with them."
                 }
               },
-              items: [
-
-                {
-                  value: "directed-find",
-                  text: "I want to select my pension provider(s) from a list to search",
-                  hint: {
-                    text: "We will only send your information to the pension provider(s) on the list to ask if you have a pension with them."
-                  }
-                },
-                {
-                  value: "find-all",
-                  text: "I want to search all pension providers", 
-                  hint: {
-                    text: "We will send your information to all the pension providers connected to our service to ask if you have a pension with them."
-                  }
+              {
+                value: "find-all",
+                text: "I want to search all pension providers", 
+                hint: {
+                  text: "We will send your information to all the pension providers connected to our service to ask if you have a pension with them."
                 }
-              ]
-            }) }}
+              }
+            ]
+          }) }}
 
-            <div class="govuk-inset-text">
-              If you think there may be a pension that you have lost touch with you should search all pension providers.
+          <p>
+            If you think there may be a pension that you have lost touch with you should search all pension providers.
+          </p>
+
+          <br>
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Reducing the amount of pension providers we share your information with
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>You may want to reduce the search range:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>to reduce the number of pension providers your information is shared with</li>
+                <li>if you have a new pension and you want it to be displayed by the service</li>
+                <li>if you know exactly where all your pensions are held</li>
+              </ul>
             </div>
-
-            <br>
-
-            {{ govukButton({
-              text: "Continue"
-            }) }}
-
+          </details>
         </div>
       </form>
 

@@ -11,7 +11,7 @@
   <div class="govuk-grid-column-full">  
     <h1 class="govuk-heading-l">Selecting providers
     <span class="govuk-hint">
-     Search for a pension provider that you want to add to the list for us to ask if you have a pension with them.
+     Search for a pension provider that you want to add to the list. We will ask the pension providers on your list to tell us if they have your pension.
     </span></h1>
   </div>
 </div>
@@ -22,7 +22,7 @@
 
       <div class="govuk-form-group {{errorFormClass}}" id="form-group">
         <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="provider-search-value">
-            Enter the name of the pension provider to search for
+            Enter the name of the pension provider
           </label>
           <div id="event-name-hint" class="govuk-hint">
             For example, Aviva.
@@ -32,26 +32,21 @@
           <span class="govuk-visually-hidden">Error:</span> {{errorString}}
         </span>
         </h2>
-          <input class="govuk-input govuk-!-width-three-quarters {{errorInputClass}}" id="provider-search-value" name="provider-search-value" type="text" value="{{providerSearchValue}}">
-          <button type="submit" class="govuk-button" onclick="checkError()">Search</button>
-
+        <input class="govuk-input govuk-!-width-three-quarters {{errorInputClass}}" id="provider-search-value" name="provider-search-value" type="text" value="{{providerSearchValue}}">
+        <p></p>
+        <button type="submit" class="govuk-button" onclick="checkError()">Search</button>
       </div>
     </form>
 
     {% if searchListNames.length > 0 %}
-
-      <p class="govuk-body-m">
-        We found {{searchListNames.length}} {{pensionProviderPlural}} matching your search for '{{providerSearchValue}}'.
-      </p>    
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+  
       <form action="/add-provider-to-list" method="post" novalidate>  
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="provider-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Which pension providers do you want to search for?
+                Add pension providers to the list
               </h2>
             </legend>
             <div id="provider-hint" class="govuk-hint">
@@ -94,7 +89,7 @@
         Your list of pension providers
       </h2>
       <span class="govuk-hint">
-        These are the pension providers that we will ask to see if you have a pension with them.
+        We will ask these pension providers if you have a pension with them. 
       </span>
       <table class="govuk-table">
         <tr class="govuk-table__row govuk-bod-s" >
@@ -108,12 +103,10 @@
         </tr>
         {% endfor %}
       </table>
-      <a href="../find-your-pensions" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+
+      <a href="/consents/redirect-dashboard" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Find pensions 
       </a>
-
-
-
   </div>
 </div>
 

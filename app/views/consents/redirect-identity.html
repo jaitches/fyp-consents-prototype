@@ -1,4 +1,4 @@
-{% extends "layout_unbranded.html" %}
+{% extends "layout_unbranded_consents.html" %}
 
 {% block pageTitle %}
   {{serviceNameIdentity}}
@@ -15,10 +15,10 @@
         To use this service you need to verify your identity, so that we know that you are who you say your are.
       </p>
       <p>
-        You will be redirected to [the id service] to verify your identity.
+        You will be redirected to the [id service] to verify your identity.
       </p>
 
-      <a href="/identity/start" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      <a href="/identity" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Continue 
       </a>
     </div>

@@ -1,0 +1,35 @@
+
+{% extends "layout_unbranded_consents.html" %}
+
+{% block pageTitle %}
+  {{serviceName}} - 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/enter-your-details" method="post" class="form">
+        <div class="govuk-form-group">
+          <div class="govuk-form-group">
+            <h1 class="govuk-heading-l">
+              We are searching for your pensions   
+            </h1>
+
+            <p> 
+              If we find your pensions they will be displayed at [dashboard name].
+            </p> 
+
+            <br>
+
+            <a href="/find-your-pensions/fyp-display-pensions?ptype=5" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+              Return to [dashboard] 
+            </a>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
