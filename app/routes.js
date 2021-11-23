@@ -93,10 +93,13 @@ router.post('/which-page-to-start', function (req, res) {
     switch (whichPage) {
         case "full":
             res.redirect('/find-your-pensions/index')
+            break
         case "consents":
             res.redirect('/consents/index')
+            break
         case "identity":
             res.redirect('/identity/start')
+            break
     }
 })
 
@@ -145,16 +148,18 @@ router.post('/check-photo', function (req, res) {
 //
 
 router.post('/find-all-or-directed', function (req, res) {
-
-
     const whichFind = req.session.data['which-find']
-        switch (whichFind) {
+    switch (whichFind) {
         case "directed-find":
             req.app.locals.firstPageLoad = true
             req.app.locals.directedListNames =[]
-            res.redirect('/consents/directed-find')        
+            req.app.locals.directedOrAll = "the pension providers you have selected"
+            res.redirect('consents/directed-find')
+            break      
         case "find-all":
-            res.redirect('/find-your-pensions/fyp-display-pensions?ptype=5')
+            req.app.locals.directedOrAll = "all UK pension providers"
+            res.redirect('consents/redirect-dashboard')
+            break
 
     }
 })
@@ -163,6 +168,7 @@ router.post('/find-all-or-directed', function (req, res) {
 
 router.get('/consents/directed-find', function (req, res) {
     req.app.locals.firstPageLoad = true
+    req.app.locals.listStarted = false
     req.app.locals.directedListNames =[]
     req.app.locals.providerSearchValue
     res.render('consents/directed-find')
@@ -189,7 +195,6 @@ router.post('/search-for-provider', function (req, res) {
         // if more than one term entered make them both required to narrow down the search
 
         if (providerSearchValue !== null) {
-            console.log('providerSearchValue ' + providerSearchValue)
 
     // do a filtered search on the json
 
@@ -203,7 +208,7 @@ router.post('/search-for-provider', function (req, res) {
                 req.app.locals.pensionProviderPlural = 'pension provider'
             }
         }
-    res.render('consents/directed-find')
+        res.render('consents/directed-find')
     }
     function filterItems(arr, query) {
       return arr.filter(function(el) {
@@ -214,6 +219,7 @@ router.post('/search-for-provider', function (req, res) {
 })
 
 router.post('/add-provider-to-list', function (req, res) {
+    req.app.locals.listStarted = true
     let selectedProviders =[]
     selectedProviders = req.session.data['provider-list']
 

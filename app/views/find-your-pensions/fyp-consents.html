@@ -10,38 +10,39 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/consents-dashboards" method="post" novalidate>
         <h1 class="govuk-heading-l">
-          [Dashboard name] consents
+          MoneyHelper consents
         </h1>
         <p>
-          Before you can use this service you need to consent to us storing and using information about your pensions.
+          Before you use this service we need your consent to store and use information about your pensions.
         </p> 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h1 class="govuk-fieldset__heading">
-                I consent to [Dashboard name]: 
+                I consent to MoneyHelper: 
               </h1>
             </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-store" name="consent-to-store" type="checkbox" value="consent-to-store">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-store">
-                  storing information [PeIs] about my pensions
+                  storing information about my pension providers
                 </label>
+                <div id="store-pei-hint" class="govuk-hint govuk-checkboxes__hint">
+                  This is optional. You will need to search for your pensions again next time.
+                </div>
 
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
-                  using the stored information to contact my pension providers and fetch my pension details
+                  using the information to fetch my pensions from my pension providers
                 </label>
               </div>
             </div>
           </fieldset>
         </div>
-        <p>
-          To use the service you must consent to these statements.
-        </p>
+
         <a href="redirect-identity" role="button" draggable="false" class="govuk-button pdp_button_consents">
           Save and continue
         </a>

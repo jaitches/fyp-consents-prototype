@@ -11,7 +11,7 @@
   <div class="govuk-grid-column-full">  
     <h1 class="govuk-heading-l">Selecting providers
     <span class="govuk-hint">
-     Search for a pension provider that you want to add to the list. We will ask the pension providers on your list to tell us if they have your pension.
+     We will ask the pension providers that you add to your list if you have a pension with them.
     </span></h1>
   </div>
 </div>
@@ -35,8 +35,11 @@
         <input class="govuk-input govuk-!-width-three-quarters {{errorInputClass}}" id="provider-search-value" name="provider-search-value" type="text" value="{{providerSearchValue}}">
         <p></p>
         <button type="submit" class="govuk-button" onclick="checkError()">Search</button>
+        <h3 class="govuk-heading-s">Forgotten your pension provider's name?</h3> 
+        <p>You might be able to find their details using the <a href="https://www.gov.uk/find-pension-contact-details">Find pension contact details service</a>.      
       </div>
     </form>
+
 
     {% if searchListNames.length > 0 %}
   
@@ -88,9 +91,12 @@
       <h2 class="govuk-heading-m">
         Your list of pension providers
       </h2>
-      <span class="govuk-hint">
-        We will ask these pension providers if you have a pension with them. 
-      </span>
+      {% if not listStarted %}
+        <p>
+          Your list of pension providers will appear here.
+        </p>
+      {% endif %}
+
       <table class="govuk-table">
         <tr class="govuk-table__row govuk-bod-s" >
         {% for details in directedListNames %}
