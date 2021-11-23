@@ -12,18 +12,65 @@
       <form action="/enter-your-details" method="post" class="form">
         <div class="govuk-form-group">
           <div class="govuk-form-group">
-            <h1 class="govuk-heading-l">
-              We are searching for your pensions   
+            <h1 class="govuk-heading-m">
+              Searching for your pensions
             </h1>
+            <p>
+              Now that you have verified your identity and entered your consents we can ask the pension providers to tell us if you have a pension with them.
+            </p>
+            <p class="govuk-body">We will send the following information to the pension providers:</p>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Last name</th>
+                  <td class="govuk-table__cell">{{lastName}}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Address</th>
+                  <td class="govuk-table__cell">{{address}}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Date of birth</th>
+                  <td class="govuk-table__cell">{{dob}}</td>
+                </tr>
+                {% if niNumber %}
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">National Insurance number</th>
+                    <td class="govuk-table__cell">{{niNumber}}</td>
+                  </tr>
+                {% endif %}
+                {% if firstName %}
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">First name</th>
+                    <td class="govuk-table__cell">{{firstName}}</td>
+                  </tr>
+                {% endif %}
+                {% if altName %}
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Previous or alternative name</th>
+                    <td class="govuk-table__cell">{{altName}}</td>
+                  </tr>
+                {% endif %}
+                {% if emailAddress %}
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Email address</th>
+                    <td class="govuk-table__cell">{{emailAddress}}</td>
+                  </tr>
+                {% endif %}
+                {% if telNumber %}
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Telephone number</th>
+                    <td class="govuk-table__cell">{{telNumber}}</td>
+                  </tr>
+                {% endif %}
 
-            <p> 
-              If we find your pensions they will be displayed at [dashboard name].
-            </p> 
+              </tbody>
+            </table>
 
             <br>
 
             <a href="/find-your-pensions/fyp-display-pensions?ptype=5" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-              Return to [dashboard] 
+              Confirm and return to [dashboard]
             </a>
 
         </div>

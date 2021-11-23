@@ -6,6 +6,14 @@
 
 {% block content %}
 <div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		{{ govukBackLink({
+			text: "Back",
+			href: "verify-its-you"
+		}) }}
+	</div>  
+</div>
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
 		<h1 class="govuk-heading-xl">
@@ -13,9 +21,6 @@
 		</h1>
 		<p>
 			To verify your identity, we ask you to add a photo of your official ID document, like your passport, ePassport, or driving licence.
-		</p>
-		<p>
-			Our verification process is powered by Yoti.
 		</p>
 
 		{{ govukAccordion({
@@ -34,24 +39,24 @@
 		        text: "What happens to the photo of my ID?"
 		      },
 		      content: {
-		        html: "<p class='govuk-body'>When you add a photo of your ID, it is uploaded using a secure connection to keep it safe. We use Yoti’s technology and expert security team to check that your ID is real and valid. Yoti is committed to protecting its users’ privacy and will never mine or sell your data to third parties.</p>
-		        <p>Yoti stores your ID document details and the results of their checks on our behalf, and we decide how long to keep them there. We can delete them from Yoti’s system at any time. When we retrieve the results we get a copy of the information into our systems.</p>"
+		        html: "<p class='govuk-body'>When you add a photo of your ID, it is uploaded using a secure connection to keep it safe. We use our technology and expert security team to check that your ID is real and valid. We are committed to protecting its users’ privacy and will never mine or sell your data to third parties.</p>
+		        <p>We store your ID document details and the results of their checks on our behalf, and we decide how long to keep them there. We can delete them from our system at any time. When we retrieve the results we get a copy of the information into our systems.</p>"
 		      }
 		    },
 		      {
 		      heading: {
-		        text: "What is Yoti?"
+		        text: "Who are we?"
 		      },
 		      content: {
-		        html: "<p class='govuk-body'>Yoti is a global digital identity platform and free app that gives you a simple and secure way to prove who you are online and in person. We use Yoti’s technology and expert security team to make sure you're a real person. Yoti is committed to protecting its users’ privacy and its systems are built in a way that means it cannot mine or sell your data to third parties.</p>"
+		        html: "<p class='govuk-body'>We are a global digital identity platform and free app that gives you a simple and secure way to prove who you are online and in person. We use our technology and expert security team to make sure you're a real person. We are committed to protecting its users’ privacy and its systems are built in a way that means it cannot mine or sell your data to third parties.</p>"
 		      }
 		    },
 		      {
 		      heading: {
-		        text: "How secure is Yoti?"
+		        text: "How secure is our service?"
 		      },
 		      content: {
-		        html: "<p class='govuk-body'>Yoti is trusted by governments and regulators for adhering to the highest standards of security. It is certified for its leading security management and processes, and its systems are regularly tested to ensure your data is safe.</p>"
+		        html: "<p class='govuk-body'>We are trusted by governments and regulators for adhering to the highest standards of security. It is certified for its leading security management and processes, and its systems are regularly tested to ensure your data is safe.</p>"
 		      }
 		    }
 		  ]

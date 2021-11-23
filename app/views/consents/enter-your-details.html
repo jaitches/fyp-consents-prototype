@@ -18,56 +18,113 @@
               </h1>
             </legend>
             <div id="details-hint" class="govuk-hint">
-              We will use your details to find your pensions         
+              We will use your details to find your pensions.         
             </div>
-            <p>
-              Your last name, National Insurance Number and date of birth have been given to us by the identity service so you do not need to enter them again.
+            <h2 class="govuk-heading-m">
+                The details that the identity service has given us
+            </h2>
+            <div id="details-hint" class="govuk-hint">
+              Your last name, address and date of birth have been given to us by the identity service so you do not need to enter them again.
+            </div>
               <div class="govuk-form-group">
-                <label class="govuk-label" for="event-name">
+                <label class="govuk-label" for="last-name">
                   Last name
                 </label>
-                <input class="govuk-input govuk-input--width-30" id="event-name" name="event-name" type="text" value="Last name" disabled>
-              </div>
-              <div class="govuk-form-group">
-                <label class="govuk-label" for="event-name">
-                  National Insurance number
-                </label>
-                <input class="govuk-input govuk-input govuk-input--width-10" id="event-name" name="event-name" type="text" value="AB123456C" disabled>
+                <input class="govuk-input govuk-input--width-30" id="last-name" name="last-name" type="text" value="Smith" disabled>
               </div>
               <div class="govuk-date-input" id="dob">
                 <div class="govuk-date-input__item">
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    <label class="govuk-label govuk-date-input__label" for="dob-day">
                       Day
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="01" disabled></div>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="01" disabled></div>
                 </div>
                 <div class="govuk-date-input__item">
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    <label class="govuk-label govuk-date-input__label" for="dob-month">
                       Month
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="APR" disabled></div>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="APR" disabled></div>
                 </div>
                 <div class="govuk-date-input__item">
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    <label class="govuk-label govuk-date-input__label" for="dob-year">
                       Year
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="1982" disabled></div>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="1982" disabled></div>
                 </div>
               </div>
-              <br>
+              <fieldset class="govuk-fieldset">  
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-line-1">
+                    Address
+                  </label>
+                  <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1" value="42 High Street" disabled>
+                </div>
+                <div class="govuk-form-group">
+                  <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" value="Reading" disabled>
+                </div>
+                <div class="govuk-form-group">
+                  <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text" value="Berks" disabled>
+                </div>
 
-              <p>
-              [Additional fields for matching will be added here]
-              </p>          
-          </fieldset>
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="address-postcode">
+                    Postcode
+                  </label>
+                  <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code" value="RG1 4WD" disabled></div>
+
+              </fieldset>
+              <br>
+            <h2 class="govuk-heading-m">
+                Additional details
+            </h2>
+            <div id="details-hint" class="govuk-hint">
+              Enter additional details that could help us find your pensions.
+            </div>
+        
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="ni-number">
+                  National Insurance number
+                </label>
+                <input class="govuk-input govuk-input govuk-input--width-10" id="ni-number" name="ni-number" type="text">
+              </div> 
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="first-name">
+                  First name
+                </label>
+                <input class="govuk-input govuk-input--width-30" id="first-name" name="first-name" type="text">
+              </div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="alt-name">
+                  Previous or alternative last name
+                </label>
+                <div id="account-number-hint" class="govuk-hint">
+                  If you think you have a pension registered in a different name enter it here.
+                </div>
+                <input class="govuk-input govuk-input govuk-input--width-10" id="alt-name" name="alt-name" type="text">
+              </div> 
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                  Email address
+                </label>
+                <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" autocomplete="email">
+              </div> 
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="telephone-number">
+                  UK telephone number
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+              </div>             
+
+            </fieldset>
         </div>
 
-        <a href="find-all-or-directed" role="button" draggable="false" class="govuk-button pdp_button_consents">
-          Continue
-        </a>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
 
         </div>
       </form>

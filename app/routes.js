@@ -154,7 +154,7 @@ router.post('/find-all-or-directed', function (req, res) {
             req.app.locals.directedListNames =[]
             res.redirect('/consents/directed-find')        
         case "find-all":
-            res.redirect('/find-your-pensions/fyp-display')
+            res.redirect('/find-your-pensions/fyp-display-pensions?ptype=5')
 
     }
 })
@@ -214,7 +214,8 @@ router.post('/search-for-provider', function (req, res) {
 })
 
 router.post('/add-provider-to-list', function (req, res) {
-    const selectedProviders = req.session.data['provider-list']
+    let selectedProviders =[]
+    selectedProviders = req.session.data['provider-list']
 
     console.log('req.app.locals.directedListNames ' + req.app.locals.directedListNames)
     console.log('selectedProviders' + selectedProviders)
@@ -255,7 +256,54 @@ router.post('/consents-main-menu', function (req, res) {
 
 })
 
+router.post('/enter-your-details', function (req, res) {
+    // initialise variables
+    req.app.locals.emailAddress = ""
+    req.app.locals.address = ""
+    req.app.locals.niNumber = ""
+    req.app.locals.telNumber = ""  
+    req.app.locals.lastName = ""
+    req.app.locals.firstName = ""
+    req.app.locals.altName = ""
 
+
+    let firstName = req.session.data['first-name']
+    let altName = req.session.data['alt-name']
+
+    let emailAddress = req.session.data['email']
+    let niNumber = req.session.data['ni-number']
+    let telNumber = req.session.data['telephone-number']    
+
+    req.app.locals.emailAddress = emailAddress
+    req.app.locals.niNumber = niNumber
+    req.app.locals.telNumber = telNumber  
+    req.app.locals.firstName = firstName
+    req.app.locals.altName = altName
+
+    req.app.locals.lastName = 'Smith'
+    req.app.locals.dob = '01 APR 1982'
+    req.app.locals.address = '42 High Street, Reading, Berks, RG1 4WD'
+
+/*
+    let dobDay = req.session.data['dob-day']
+    let dobMon = req.session.data['dob-month']
+    let dobYear = req.session.data['dob-year']
+
+    req.app.locals.dob = dobDay + ' ' + dobMon + ' '  + dobYear
+
+    let address1 =  req.session.data['address-line1'] 
+    let address2 =  req.session.data['address-line2']
+    let town =  req.session.data['address-town']
+    let county =  req.session.data['address-county']
+    let postcode = req.session.data['address-postcode']
+    
+    req.app.locals.address = address1 + ', ' + address2 + ', ' + town + ', ' + county + ', ' + postcode
+
+*/
+    res.redirect('/consents/find-all-or-directed')
+
+
+})
 
 // if examples database selected choose which example details to show
 

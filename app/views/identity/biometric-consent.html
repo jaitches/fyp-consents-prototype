@@ -6,8 +6,15 @@
 
 {% block content %}
 <div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+		{{ govukBackLink({
+			text: "Back",
+			href: "take-photo-id"
+		}) }}
+	</div>  
+</div>
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
 		<div>
 			<img src="/public/images/photo-confirm-icon.jpeg" alt="Photo id is complete" class="pdpid-photo-confirm">
 		</div>
@@ -20,7 +27,7 @@
 				Our verification process uses your biometrics for extra security.
 			</p>
 			<p>
-				You need to provide consent for your biometrics to Yoti and the organisation doing the check.
+				You need to provide consent for your biometrics to us and the organisation doing the check.
 			</p>
 			<ul class="govuk-list govuk-list--bullet">
 		        <li>
@@ -29,7 +36,7 @@
 		        <li>
 		        	Images captured during the scan are also matched to your ID document photo to make sure no one is trying to impersonate you.</li>      
 		        <li>
-		        	The organization doing the check will delete your biometrics in accordance with its privacy policy and Yoti will delete your biometrics once the organization no longer requires Yoti to hold it, and at the very latest within three years.
+		        	The organization doing the check will delete your biometrics in accordance with its privacy policy and we will delete your biometrics once the organization no longer requires us to hold it, and at the very latest within three years.
 		        </li>
 		    </ul>
 			<div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
@@ -41,6 +48,7 @@
 			  </div>
 			</div>
 		</div>
+		<p></p>
 
 		<a href="verify-its-you" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
 		CONTINUE 

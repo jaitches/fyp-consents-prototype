@@ -1,0 +1,39 @@
+{% extends "layout_unbranded_id.html" %}
+
+{% block pageTitle %}
+  {{serviceNameIdentity}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">
+        Consent to us sharing your information
+      </h2>
+      <p>
+        The Manage your consents service will use your information to find your pensions.
+      </p>
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h1 class="govuk-fieldset__heading">
+          I consent to:
+        </h1>
+      </legend>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="consents" name="consents" type="checkbox" value="share-providers" aria-describedby="consents-item-hint">
+          <label class="govuk-label govuk-checkboxes__label" for="consents">
+            my last name, address and date of birth being sent to the Manage your consents service
+          </label>
+        </div>
+
+      <p>
+        You will now be redirected back to the Manage your consents service
+      </p>
+      <a href="/consents/enter-consents" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        FINISH 
+      </a>      
+
+    </div>
+  </div>
+{% endblock %}
