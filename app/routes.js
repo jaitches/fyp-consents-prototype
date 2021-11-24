@@ -132,14 +132,17 @@ router.post('/select-id-document', function (req, res) {
 
 // first time through return and do the back
 // once done the back move on to the next page
+// 23/11/21 - remove return to do the back
 router.post('/check-photo', function (req, res) {
-    if (req.app.locals.frontOrBack == "front") {
+    /*if (req.app.locals.frontOrBack == "front") {
         req.app.locals.frontOrBack = "back"
         res.redirect('/identity/take-photo-id')
     }
     else {
         res.redirect('/identity/biometric-consent')
-    }
+    } */
+    res.redirect('/identity/biometric-consent')
+
 })
 
 

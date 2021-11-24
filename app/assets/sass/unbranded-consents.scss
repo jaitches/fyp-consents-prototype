@@ -14,8 +14,141 @@ $govuk-font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", san
 $govuk-canvas-background-colour: $govuk-body-background-colour;
 
 @import "application";
+//
+// consents styles
+//
+.body {
+	  font-family: "Poppins", arial, sans-serif !important;
+}
+.govuk-header {
+  font-family: "GDS Transport", arial, sans-serif;
+}
 
-img {
+//header
+
+.govuk-header {
+  font-family: "Poppins", arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.14286;
+  border-bottom: 10px solid #E7EDF5;
+  color: #3A36DB;
+  background: #E7EDF5;
+}
+.govuk-header__container {
+	border-color: #E7EDF5;
+	background: #E7EDF5;
+}
+
+.pdp-service-name-consents, 
+.govuk-header__link:link,
+.govuk-header__link:visited {
+	position : relative;
+	font-size : 2rem;
+	font-weight : bold;
+	color : #3A36DB;
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+// footer
+
+.govuk-footer {
+  font-family: "Poppins", arial, sans-serif !important;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.14286;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  border-top: 1px solid #E7EDF5; ;
+  color: #3A36DB;
+  background: #E7EDF5;
+  min-height: 60px;
+}
+
+
+.pdp-consents-footer-img {
+	padding-right:20px;
+	text-decoration: none;
+}
+
+// button
+
+.pdp-consents-button {
+  	font-family: Poppins, arial, sans-serif;
+	background-color: #3A36DB;
+	color: white ;
+	box-shadow: 0 2px 0 #e5a044;	
+  	border-radius: 16px;
+}
+
+
+.pdp-consents-button:hover,
+.pdp-consents-button:link,
+.govuk-button:link {
+	background-color: #3A36DB;
+	box-shadow: 0 2px 0 #e5a044;	
+}
+
+// other styles
+.pdp-warning-message {
+	color : red;
+	font-weight: bold;
+}
+.pdp-caption {
+	background-color: #d4351c;
+	color: white;
+	width: 25%;
+	padding-left: 10px;
+}
+// header changes
+
+
+// heading service name
+// header service name font size bigger
+.govuk-header__link--service-name {
+  font-family: "Poppins", arial, sans-serif;
+  font-size: 32px;
+}
+
+.govuk-header__link--service-name 
+.pdp-header-content-consents{
+  font-size: 32px;
+}
+
+.pdp-service-name-consents, 
+.govuk-header__link:link,
+.govuk-header__link:visited {
+	position : relative;
+	font-size : 2rem;
+	font-weight : bold;
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 0px;
+}
+.pdp-service-name, 
+.pdp-service-name:hover,
+.pdp-service-name:visited,
+.pdp-service-name:active {
+	position : relative;
+	font-size : 2rem;
+	font-weight : bold;
+	color : white;
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 0px;
+}
+.pdp-admin {
+	background: #058282;
+	border-color: #058282;
+
+}
+
+
+pdp-img {
     max-width: 100%;
     height: auto;
     display: block;
@@ -36,9 +169,7 @@ img {
   border-radius: 10%;
 }
 
-.pdpid-footer-img {
-	float:left !important;
-}
+
 
 .pdpid-grey-background {
 	background-color:#f5f8f9;

@@ -15,16 +15,46 @@
 {% endblock %}
 
 {% block header %}
-
-<div class="pdp-consents-header govuk-header__container govuk-width-container pdp-header-container">
- 	<div class="pdp-service-name-consents">
-		<a href="/consents/start" class="govuk-header__link govuk-header__link--service-name pdp-header-content-consents">
-		  {{ serviceNameConsents }}
-		</a>
-	</div>
+<div class="govuk-header">
+  <div class="govuk-header__container govuk-width-container ">
+   	<div class="pdp-service-name-consents">
+      <a href="/consents/index"> 
+  		<a href="/consents/index" class="govuk-header__link govuk-header__link--service-name pdp-header-content-consents">
+  		  {{ serviceNameConsents }}
+  		</a>
+  	</div>
+  </div>
 </div>
 {% endblock %}
 
 {% block footer %}
+<div class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="pdp-consents-footer-img-group">
+        <a href="https://www.gov.uk/"><img src="/public/images/logo-en-footer-gov.svg" alt="H. M. Government logo" class="pdp-consents-footer-img" width="15%">
+        </a> 
+        <a href="https://moneyandpensionsservice.org.uk/"><img src="/public/images/logo-footer-maps.svg" alt="H. M. Government logo" class="pdp-consents-footer-img" width="15%">
+        </a> 
+    </div>
+    <br>
+    <ul class="govuk-footer__inline-list">
+      <li class="govuk-footer__inline-list-item">
+        <a href="">Help</a>
+      </li>
+      <li class="govuk-footer__inline-list-item">
+        <a href="">Privacy</a>
+      </li>
+      <li class="govuk-footer__inline-list-item">
+        <a href="">Cookies statement</a>
+      </li>      
+      <li class="govuk-footer__inline-list-item">
+        <a href="">Accessibility statement</a>
+      </li>      
+      <li class="govuk-footer__inline-list-item">
+        <a href="">Terms and conditions</a>
+      </li>
+    </p>
 
+  </div>
+</div>
 {% endblock %}
