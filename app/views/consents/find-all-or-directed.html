@@ -15,14 +15,14 @@
       </h1>
 
           <p> 
-            To find your pensions we send the information you have given us to all UK pension providers (that’s about 36,000 pension schemes).
+            To find your pensions, we can send the information you have given us to all 36,000 UK pension providers.
           </p>
           {{ govukRadios({
             idPrefix: "which-find",
             name: "which-find",
             fieldset: {
               legend: {
-                text: "Which pensions do you want to find?",
+                text: "Which pension providers do you want to search?",
                 classes: "govuk-fieldset__legend--m"
               }
             },
@@ -30,15 +30,18 @@
 
               {
                 value: "directed-find",
-                text: "I want to decide which pension provider(s) to search",
+                text: "I want to decide which pension providers to search",
                 hint: {
-                  text: "We will only send your information to the pension provider(s) you select."
+                  text: "We'll only send your information to the pension providers you select. This is useful if you want to share your information with fewer pension providers, if you have a new pension and know who is the pension provider, or if you know exactly where all your pensions are held."
                 }
               },
               {
                 value: "find-all",
-                text: "I want to search all pension providers"
-                 }
+                text: "I want to search all pension providers",
+                hint: {
+                  text: "We'll send your information to all UK pension providers. This will give you the best chance of finding all of your pensions, even if you have forgotten about them."
+                }
+              }
             ]
           }) }}
 

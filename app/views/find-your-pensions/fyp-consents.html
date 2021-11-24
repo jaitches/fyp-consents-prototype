@@ -10,41 +10,36 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/consents-dashboards" method="post" novalidate>
         <h1 class="govuk-heading-l">
-          MoneyHelper consents
+          Consent to MoneyHelper storing and using your information
         </h1>
         <p>
-          Before you use this service we need your consent to store and use information about your pensions.
+          We need your consent to store and use your information to find your pensions.
         </p> 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-                I consent to MoneyHelper: 
-              </h1>
-            </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-store" name="consent-to-store" type="checkbox" value="consent-to-store">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-store">
-                  storing information about my pension providers
+                  I consent to MoneyHelper storing information about my pension providers.
                 </label>
                 <div id="store-pei-hint" class="govuk-hint govuk-checkboxes__hint">
-                  This is optional. You will need to search for your pensions again next time.
+                  You will not need to search for your pensions again if you consent to this. This is optional.
                 </div>
 
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
-                  using the information to fetch my pensions from my pension providers
+                  I consent to MoneyHelper using my stored information to contact my pensions providers and find my pension details.
                 </label>
               </div>
             </div>
           </fieldset>
         </div>
 
-        <a href="redirect-identity" role="button" draggable="false" class="govuk-button pdp_button_consents">
-          Save and continue
+        <a href="redirect-identity" role="button" draggable="false" class="govuk-button pdp-button">
+          Continue
         </a>
       </form>
     </div>

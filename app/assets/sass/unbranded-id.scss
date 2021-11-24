@@ -15,6 +15,38 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 
 @import "application";
 
+.pdpid-button {
+	font-family: Gothic A1, arial, sans-serif;
+	background-color: #2d9fff;
+	box-shadow: none ;	
+
+	color: white ;
+  	border-radius: 8px;
+
+}
+
+.pdpid-button-secondary {
+	font-family: Gothic A1, arial, sans-serif;
+	background-color: #D9E1E7;
+	box-shadow: none;
+	color : #8D979C;
+  	border-radius: 8px;
+}
+.pdpid-button-secondary:hover,
+.pdpid-button-secondary:link {
+		background-color: #D9E1E7;
+		color : #8D979C;
+
+}
+
+
+.pdpid-button:hover,
+.pdpid-button:link,
+.govuk-button:link {
+	background-color: #2d9fff;
+	box-shadow: none;	
+}
+
 img {
     max-width: 100%;
     height: auto;
