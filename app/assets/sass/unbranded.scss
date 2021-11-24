@@ -41,14 +41,31 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 	color: #384455;
 }
 
-
 .pdp-button:hover,
 .pdp-button:link {
 	background-color: #c82a87;
 	box-shadow: 0 2px 0 #e5a044;	
 }
 
-// heading service name
+// header
+.pdp-header-no-border {
+	border-bottom: none;
+	margin-bottom: 0px;
+    padding-top: 0px;
+
+}
+.pdp-header {
+//	border-bottom: 1px solid white;
+	background-color: #0f19a0;
+	width: 100%;
+}
+
+.pdp-header-nav {
+	font-family: "Roobert", arial, sans-serif;
+
+}
+
+// header service name
 // header service name font size bigger
 .govuk-header__link--service-name {
   font-size: 32px;

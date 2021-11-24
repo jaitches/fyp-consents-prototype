@@ -103,6 +103,24 @@ router.post('/which-page-to-start', function (req, res) {
     }
 })
 
+//
+// MoneyHelper dashboard pages
+//
+router.post('/sign-in-or-register', function (req, res) {
+    const loginOrGuest = req.session.data['signin-or-guest']
+    switch (loginOrGuest) {
+        case "signin":
+            req.app.locals.guest = false
+            res.redirect('/find-your-pensions/fyp-login')
+            break      
+        case "guest":
+            req.app.locals.guest = true
+            res.redirect('/find-your-pensions/fyp-consents')
+            break
+    }
+})
+
+
 
 //
 // identity pages

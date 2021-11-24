@@ -1,0 +1,48 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {{serviceName}} - Login
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/sign-in-or-register" method="post" class="form">
+        {{ govukRadios({
+          idPrefix: "which-find",
+          name: "signin-or-guest",
+          fieldset: {
+            legend: {
+              text: "Would you like to sign in or create and account to save your details?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+
+            {
+              value: "signin",
+              text: "Sign in or create an account",
+              hint: {
+                text: "Creating an account takes 2 minutes."
+              }
+            },
+            {
+              value: "guest",
+              text: "Continue without an account",
+              hint: {
+                text: "Your details won't be saved for future visits and all information will have to be re-entered."
+              }
+            }
+          ]
+        }) }}
+            <br>
+      <button class="govuk-button pdp-button" data-module="govuk-button">
+        Continue
+      </button>
+
+
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -18,6 +18,7 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              {% if not guest %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-store" name="consent-to-store" type="checkbox" value="consent-to-store">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-store">
@@ -26,8 +27,8 @@
                 <div id="store-pei-hint" class="govuk-hint govuk-checkboxes__hint">
                   You will not need to search for your pensions again if you consent to this. This is optional.
                 </div>
-
               </div>
+              {% endif %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use">
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
