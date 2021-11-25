@@ -58,25 +58,20 @@
               spellcheck: false
             }) }}
 
-            {{ govukInput({
-              label: {
-                text: "Create a password"
-              },
-              id: "password",
-              classes: "govuk-input--width-20",
-              name: "password",
-              spellcheck: false
-            }) }}            
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="password">
+                Create a password
+              </label>
+              <input class="govuk-input" id="password" name="password" type="password">
+            </div>
 
-            {{ govukInput({
-              label: {
-                text: "Repeat password"
-              },
-              id: "password-repeat",
-              classes: "govuk-input--width-20",
-              name: "password-repeat",
-              spellcheck: false
-            }) }}
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="password2">
+                Re-enter password
+              </label>
+              <input class="govuk-input" id="password2" name="password2" type="password">
+            </div>
+ 
             <br>
             <a href="fyp-login" role="button" draggable="false" class="govuk-button pdp-button">
               Save and continue
@@ -87,7 +82,6 @@
             </h2>
             <p><a href="fyp-login">Sign in to your account</a>
             </p>             
-
 
           </fieldset>
         </div>

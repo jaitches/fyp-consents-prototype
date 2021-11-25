@@ -26,16 +26,13 @@
               autocomplete: "email",
               spellcheck: false
             }) }}
-
-            {{ govukInput({
-              label: {
-                text: "Password"
-              },
-              id: "password",
-              name: "password",
-              spellcheck: false
-            }) }}
-
+            
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="password">
+                Password
+              </label>
+              <input class="govuk-input" id="password" name="password" type="password"></div>
+            </div>
             <br>
 
       <a href="fyp-consents" role="button" draggable="false" class="govuk-button pdp-button" data-module="govuk-button">
