@@ -29,13 +29,13 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 	font-family: Gothic A1, arial, sans-serif;
 	background-color: #D9E1E7;
 	box-shadow: none;
-	color : #8D979C;
+	color : grey !important;
   	border-radius: 8px;
 }
 .pdpid-button-secondary:hover,
 .pdpid-button-secondary:link {
-		background-color: #D9E1E7;
-		color : #8D979C;
+		background-color: #D9E1E7 !important;
+		color : grey;
 
 }
 
