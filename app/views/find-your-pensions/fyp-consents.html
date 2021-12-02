@@ -20,7 +20,7 @@
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               {% if not guest %}
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="consent-to-store" name="consent-to-store" type="checkbox" value="consent-to-store">
+                <input class="govuk-checkboxes__input" id="consent-to-store" name="consent-to-store" type="checkbox" value="consent-to-store" {{checkedStore}}>
                 <label class="govuk-label govuk-checkboxes__label" for="consent-to-store">
                   I consent to MoneyHelper storing information about my pension providers.
                 </label>
@@ -29,19 +29,21 @@
                 </div>
               </div>
               {% endif %}
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use">
-                <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
-                  I consent to MoneyHelper using my stored information to contact my pensions providers and find my pension details.
-                </label>
+              <div class="{{errorFormClass}}">
+                <span id="dashboard-consent2-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> {{dashboardConsentErrorString}}
+                </span>              
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use" {{checkedUse}}>
+                  <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
+                    I consent to MoneyHelper using my stored information to contact my pensions providers and find my pension details.
+                  </label>
+                </div>
               </div>
             </div>
           </fieldset>
         </div>
-
-        <a href="fyp-redirect-identity" role="button" draggable="false" class="govuk-button pdp-button">
-          Continue
-        </a>
+       <button type="submit" class="govuk-button pdp-button" onclick="checkError()">Continue</button>
       </form>
     </div>
   </div>

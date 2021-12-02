@@ -7,7 +7,7 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="/register-or-login" method="post" class="form">
+      <form action="/fyp-login" method="post" class="form">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="details-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -15,6 +15,10 @@
                 Sign in
               </h1>
             </legend>
+
+            <span id="no-account-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{loginErrorString}}
+            </span>
 
             {{ govukInput({
               label: {
@@ -26,22 +30,23 @@
               autocomplete: "email",
               spellcheck: false
             }) }}
+
             
             <div class="govuk-form-group">
               <label class="govuk-label" for="password">
                 Password
               </label>
-              <input class="govuk-input" id="password" name="password" type="password"></div>
+              <input class="govuk-input" id="password" name="password" type="password">
             </div>
             <br>
+          </fieldset>
+        </div>
+       <button type="submit" class="govuk-button pdp-button" onclick="checkError()">Sign in</button>
 
-      <a href="fyp-consents" role="button" draggable="false" class="govuk-button pdp-button" data-module="govuk-button">
-        Sign in 
-      </a>
       <h2 class="govuk-heading-m">
         Don't have an account?
       </h2>
-      <p><a href="fyp-register" role="button">Create an account</a>.</p>
+      <p><a href="/find-your-pensions/fyp-register" role="button">Create an account</a>.</p>
       <p></p>
     </form>
   </div>

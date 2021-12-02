@@ -95,7 +95,7 @@ router.post('/which-page-to-start', function (req, res) {
             res.redirect('/find-your-pensions/index')
             break
         case "consents":
-            res.redirect('/consents/index')
+            res.redirect('/consents/enter-consents-start')
             break
         case "identity":
             res.redirect('/identity/start')
@@ -111,6 +111,7 @@ router.post('/sign-in-or-register', function (req, res) {
     switch (loginOrGuest) {
         case "signin":
             req.app.locals.guest = false
+            req.app.locals.fypRegistered = false
             res.redirect('/find-your-pensions/fyp-login')
             break      
         case "guest":
@@ -120,7 +121,67 @@ router.post('/sign-in-or-register', function (req, res) {
     }
 })
 
+// sign in, if user doesn't go to the create account first then raise an error
+router.post('/fyp-login', function(req,res) {
+    if (!req.app.locals.fypRegistered) {
+        req.app.locals.loginErrorString = "Error: Enter a valid user ID and password or create an account "
+        req.app.locals.errorFormClass = "govuk-form-group--error"  
+        req.app.locals.errorInputClass = "govuk-input--error" 
+        res.render('find-your-pensions/fyp-login')
+    }    
+    else {
+        req.app.locals.loginErrorString = ""
+        req.app.locals.errorFormClass = ""
+        req.app.locals.errorInputClass = ""
 
+        res.redirect('find-your-pensions/fyp-consents')
+
+    }
+})
+
+// create dashoard account - reset flag so sign in doesn't error second time round
+router.get('/find-your-pensions/fyp-register', function(req,res) {
+
+        req.app.locals.fypRegistered = true
+        req.app.locals.loginErrorString = ""
+        req.app.locals.errorFormClass = ""
+        req.app.locals.errorInputClass = ""
+        res.render('find-your-pensions/fyp-register')
+})
+
+// dashboard consents page 
+router.post('/consents-dashboards', function(req,res) {
+    // copy checked status from checkboxes
+    const dashboardConsentStore = req.session.data['consent-to-store']
+    const dashboardConsentUse = req.session.data['consent-to-use']
+
+    // set the checked status in the variable so that the box remains checked when the user leaves and comes ack to this page
+    // couldn't get the prototype kit recommended way to work !! https://govuk-prototype-kit.herokuapp.com/docs/examples/pass-data
+
+    if (dashboardConsentStore == null) {
+        req.app.locals.checkedStore = ""
+    }
+    else {
+        req.app.locals.checkedStore = "checked"
+    }
+
+    // set the error fields if not all the consents are checked
+
+    if (dashboardConsentUse == null) {
+        req.app.locals.dashboardConsentErrorString = "To find your pensions you must agree to this consent"
+        req.app.locals.errorFormClass = "govuk-form-group--error"  
+        req.app.locals.errorInputClass = "govuk-input--error" 
+        req.app.locals.checkedUse = "" 
+        res.render('find-your-pensions/fyp-consents')
+    } 
+    else {
+        req.app.locals.dashboardConsentErrorString = ""
+        req.app.locals.errorFormClass = ""
+        req.app.locals.errorInputClass = ""
+        req.app.locals.checkedUse = "checked" 
+        res.redirect('find-your-pensions/fyp-redirect-identity')
+    }
+})
 
 //
 // identity pages
@@ -184,6 +245,65 @@ router.post('/find-all-or-directed', function (req, res) {
 
     }
 })
+
+// consents page C&A
+ 
+router.post('/consents-all', function (req, res) {
+
+    // copy checked status from checkboxes
+
+    const consent1 = req.session.data['consents-1']
+    const consent2 = req.session.data['consents-2']
+    const consent3 = req.session.data['consents-3']
+    const consent4 = req.session.data['consents-4']
+
+    // set the checked status in the variable so that the box remains checked when the user leaves and comes ack to this page
+    // couldn't get the prototype kit recommended way to work !! https://govuk-prototype-kit.herokuapp.com/docs/examples/pass-data
+
+    if (consent1 == null) {
+        req.app.locals.checkedConsent1 = ""
+    }
+    else {
+        req.app.locals.checkedConsent1 = "checked"
+    }
+    if (consent2 == null) {
+        req.app.locals.checkedConsent2 = ""
+    }
+    else {
+        req.app.locals.checkedConsent2 = "checked"
+    }
+
+    if (consent3 == null) {
+        req.app.locals.checkedConsent3 = ""
+    }
+    else {
+        req.app.locals.checkedConsent3 = "checked"
+    }
+
+    if (consent4 == null) {
+        req.app.locals.checkedConsent4 = ""
+    }
+    else {
+        req.app.locals.checkedConsent4 = "checked"
+    }
+
+// set the error fields if not all the consents are checked
+    if (consent1 == null || consent2 == null || consent3 == null || consent4 == null) {
+
+        req.app.locals.consentsErrorString = "To find your pensions you must agree to all of these consents"
+        req.app.locals.errorFormClass = "govuk-form-group--error"  
+        req.app.locals.errorInputClass = "govuk-input--error" 
+        res.render('consents/consents-all')
+    } 
+    else {
+        req.app.locals.consentsErrorString = ""
+        req.app.locals.errorFormClass = ""
+        req.app.locals.errorInputClass = ""
+        res.redirect('consents/enter-your-details')
+    }
+
+})
+
 
 // directed find
 
