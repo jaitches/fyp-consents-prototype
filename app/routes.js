@@ -115,6 +115,7 @@ router.post('/sign-in-or-register', function (req, res) {
             res.redirect('/find-your-pensions/fyp-login')
             break      
         case "guest":
+            req.app.locals.guestCheckedUse = "" 
             req.app.locals.guest = true
             res.redirect('/find-your-pensions/fyp-consents')
             break
@@ -123,34 +124,37 @@ router.post('/sign-in-or-register', function (req, res) {
 
 // sign in, if user doesn't go to the create account first then raise an error
 router.post('/fyp-login', function(req,res) {
-    if (!req.app.locals.fypRegistered) {
+    console.log('guest ' + req.app.locals.guest)
+    if (!req.app.locals.fypRegistered && !req.app.locals.guest) {
         req.app.locals.loginErrorString = "Error: Enter a valid user ID and password or create an account "
         req.app.locals.errorFormClass = "govuk-form-group--error"  
         req.app.locals.errorInputClass = "govuk-input--error" 
         res.render('find-your-pensions/fyp-login')
     }    
     else {
+        req.app.locals.guest = false
         req.app.locals.loginErrorString = ""
         req.app.locals.errorFormClass = ""
         req.app.locals.errorInputClass = ""
 
-        res.redirect('find-your-pensions/fyp-consents')
+        res.redirect('find-your-pensions/fyp-redirect-consents')
 
     }
 })
 
 // create dashoard account - reset flag so sign in doesn't error second time round
-router.get('/find-your-pensions/fyp-register', function(req,res) {
+router.get('/find-your-pensions/fyp-create-account', function(req,res) {
 
         req.app.locals.fypRegistered = true
         req.app.locals.loginErrorString = ""
         req.app.locals.errorFormClass = ""
         req.app.locals.errorInputClass = ""
-        res.render('find-your-pensions/fyp-register')
+        res.render('find-your-pensions/fyp-create-account')
 })
 
 // dashboard consents page 
-router.post('/consents-dashboards', function(req,res) {
+router.post('/create-account', function(req,res) {
+    req.app.locals.firstName = req.session.data['first-name']
     // copy checked status from checkboxes
     const dashboardConsentStore = req.session.data['consent-to-store']
     const dashboardConsentUse = req.session.data['consent-to-use']
@@ -172,16 +176,43 @@ router.post('/consents-dashboards', function(req,res) {
         req.app.locals.errorFormClass = "govuk-form-group--error"  
         req.app.locals.errorInputClass = "govuk-input--error" 
         req.app.locals.checkedUse = "" 
-        res.render('find-your-pensions/fyp-consents')
+        res.render('find-your-pensions/fyp-create-account')
     } 
     else {
         req.app.locals.dashboardConsentErrorString = ""
         req.app.locals.errorFormClass = ""
         req.app.locals.errorInputClass = ""
         req.app.locals.checkedUse = "checked" 
-        res.redirect('find-your-pensions/fyp-redirect-identity')
+        res.redirect('find-your-pensions/fyp-login')
     }
 })
+
+
+router.post('/guest-consent', function(req,res) {
+    // copy checked status from checkboxes
+    const guestConsentUse = req.session.data['consent-to-use']
+
+    // set the checked status in the variable so that the box remains checked when the user leaves and comes ack to this page
+    // couldn't get the prototype kit recommended way to work !! https://govuk-prototype-kit.herokuapp.com/docs/examples/pass-data
+
+    // set the error fields if not all the consents are checked
+
+    if (guestConsentUse == null) {
+        req.app.locals.guestConsentErrorString = "To find your pensions you must agree to this consent"
+        req.app.locals.errorFormClass = "govuk-form-group--error"  
+        req.app.locals.errorInputClass = "govuk-input--error" 
+        req.app.locals.guestCheckedUse = "" 
+        res.render('find-your-pensions/fyp-consents')
+    } 
+    else {
+        req.app.locals.guestConsentErrorString = ""
+        req.app.locals.errorFormClass = ""
+        req.app.locals.errorInputClass = ""
+        req.app.locals.guestCheckedUse = "checked" 
+        res.redirect('find-your-pensions/fyp-redirect-consents')
+    }
+})
+
 
 //
 // identity pages

@@ -1,0 +1,32 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {{serviceNameIdentity}}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Find your pensions
+      </h1>
+
+      <p>
+        To find your pensions we will redirect you to PensionFinder provided by the <a href="">Money and Pensions Service</a>. You will need to verify your identity and consent to the service using your information to search for your pensions. You will then be redirected back to MoneyHelper to view your pensions. 
+      </p>
+      {% if not guest %}
+      <p>
+        You will only need to do this the first time you use MoneyHelper to view your pensions.
+      </p>
+      {% else %}
+      <p>
+        You have not signed in to MoneyHelper. You can <a href="fyp-create-account">create an account</a> or <a href="fyp-login">sign to MoneyHelper</a> to avoid having to verify your identity and give your consent every time you visit us to view your pensions.
+      </p>
+      {% endif %}
+
+      <a href="/consents/index-first-visit" role="button" draggable="false" class="govuk-button pdp-button" data-module="govuk-button">
+        Go to PensionFinder 
+      </a>
+    </div>
+  </div>
+{% endblock %}

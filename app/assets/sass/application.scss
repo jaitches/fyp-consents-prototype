@@ -51,10 +51,7 @@ $govuk-assets-path: '/govuk/assets/';
   display: flex;
 }
 
-.pdp-details-link {
-	text-align: right;
-	font-size: 20px;
-}
+
 // override summary margin size from 30 to 10
 .govuk-summary-list {
 	margin-bottom: 10px !important;

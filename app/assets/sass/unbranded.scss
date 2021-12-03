@@ -66,11 +66,18 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 
 }
 
+.pdp-login-hello {
+	float: right;
+	padding-top: 40px;
+}
+.pdp-login-hello-font {
+	color: #c82a87;
+	font-size: 16px;
+}
 // More details link
 
 .pdp-details-link {
 	text-align: right;
-	font-size: 20px;
 }
 
 // footer
