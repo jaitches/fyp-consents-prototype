@@ -271,7 +271,7 @@ router.post('/find-all-or-directed', function (req, res) {
             break      
         case "find-all":
             req.app.locals.directedOrAll = "all UK pension providers"
-            res.redirect('consents/redirect-dashboard')
+            res.redirect('consents/search')
             break
 
     }
@@ -439,8 +439,8 @@ router.post('/enter-your-details', function (req, res) {
     req.app.locals.address = ""
     req.app.locals.niNumber = ""
     req.app.locals.telNumber = ""  
-    req.app.locals.lastName = ""
-    req.app.locals.firstName = ""
+//    req.app.locals.lastName = ""
+//    req.app.locals.firstName = ""
     req.app.locals.altName = ""
     req.app.locals.prevAddress = ""
 

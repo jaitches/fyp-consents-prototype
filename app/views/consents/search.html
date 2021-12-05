@@ -12,13 +12,13 @@
       <form action="/enter-your-details" method="post" class="form">
         <div class="govuk-form-group">
           <div class="govuk-form-group">
-            <h1 class="govuk-heading-xl">
+            <h1 class="govuk-heading-xl pdp-consent-heading-font">
               Searching for your pensions
             </h1>
   
-            <p class="govuk-body">We will send the following information to {{directedOrAll}}:</p>
+            <p class="govuk-body pdp-consent-font">We will send the following information to {{directedOrAll}}:</p>
             <table class="govuk-table">
-              <tbody class="govuk-table__body">
+              <tbody class="govuk-table__body pdp-consent-font">
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">First name</th>
                   <td class="govuk-table__cell">{{firstName}}</td>
@@ -57,7 +57,8 @@
                     <td class="govuk-table__cell">{{prevAddress}}</td>
                   </tr>
                 {% endif %}
--->                {% if emailAddress %}
+-->                
+                {% if emailAddress %}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Email address</th>
                     <td class="govuk-table__cell">{{emailAddress}}</td>

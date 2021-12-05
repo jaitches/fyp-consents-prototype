@@ -16,10 +16,12 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 @import "application";
 
 .body {
-	  font-family: "Roobert", arial, sans-serif !important;
+	  font-family: "Roobert", sans-serif !important;
 }
 // Font
-
+.pdp-heading-font {
+	color: #0f19a0;
+}
 // button
 .pdp-button {
   	font-family: "Roobert", arial, sans-serif;
@@ -76,10 +78,24 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 	font-family: "Roobert", arial, sans-serif;
 }
 
+//
+// pension panels
+//
+
+// pension box formatting ptype 5
+
+.pdp-pension-box-border {
+	border-style: solid;
+	border-width: 8px;
+	border-color: #9da1ca;
+	padding: 5px;
+	border-radius: 0px 0px 0px 2.25em
+}
 // More details link
 .pdp-details-link-right {
 	text-align: right;
 }
+
 
 // footer
 .pdp-footer {
