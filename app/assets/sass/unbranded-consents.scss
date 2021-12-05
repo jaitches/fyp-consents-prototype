@@ -109,6 +109,20 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 	box-shadow: 0 2px 0 #e5a044;	
 }
 
+.pdp-consents-button[disabled="disabled"]:hover,
+.govuk-button[disabled]:hover,
+ {
+  background-color: #3A36DB;
+  cursor: default;
+}
+.govuk-button[disabled]:visited,
+.govuk-button[disabled]:active,
+ {
+  background-color: #3A36DB;
+  cursor: default;
+}
+
+
 // other styles
 .pdp-warning-message {
 	color : red;

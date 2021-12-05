@@ -24,14 +24,14 @@
               value: "signin",
               text: "Sign in or create an account",
               hint: {
-                text: "Creating an account takes 2 minutes."
+                text: "Creating an account takes 2 minutes and your details will be saved."
               }
             },
             {
               value: "guest",
               text: "Continue without an account",
               hint: {
-                text: "Your details won't be saved for future visits and all information will have to be re-entered."
+                text: "Your details will not be saved and you’ll have to re-enter your details every time you use the service "
               }
             }
           ]
@@ -40,8 +40,23 @@
       <button class="govuk-button pdp-button" data-module="govuk-button">
         Continue
       </button>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Advantages of creating an account
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>
+            If you create an account MoneyHelper can store a list of your pensions.
+          </p>
 
+          <p>
+            If you do not sign in to a MoneyHelper account you will need to sign in to your identity account and consent to us finding your pensions each time you visit us. This could take 15 minutes.
+          </p>
 
+        </div>
+      </details>
     </form>
   </div>
 </div>

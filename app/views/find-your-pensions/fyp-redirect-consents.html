@@ -1,18 +1,24 @@
 {% extends "layout_unbranded.html" %}
 
 {% block pageTitle %}
-  {{serviceNameIdentity}}
+  {{serviceName}}
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        Find your pensions
+        PensionFinder
       </h1>
 
       <p>
-        To find your pensions we will redirect you to PensionFinder provided by the <a href="">Money and Pensions Service</a>. You will need to verify your identity and consent to the service using your information to search for your pensions. You will then be redirected back to MoneyHelper to view your pensions. 
+        We use another service called PensionFinder to find your pension providers. PensionFinder tells us which pension providers to ask for your pension details.
+      </p>
+      <p>
+        For PensionFinder to search for your pension providers you will need to verify your identity and consent to the service using your information.
+      </p>
+      <p>
+        When you have finished at PensionFinder you will be sent back to us to view your pensions.
       </p>
       {% if not guest %}
       <p>
@@ -23,7 +29,9 @@
         You have not signed in to MoneyHelper. You can <a href="fyp-create-account">create an account</a> or <a href="fyp-login">sign to MoneyHelper</a> to avoid having to verify your identity and give your consent every time you visit us to view your pensions.
       </p>
       {% endif %}
-
+      <p>
+        PensionFinder is backed by the UK Government and provided by the <a href="">Money and Pensions Service</a>.
+      </p>
       <a href="/consents/index-first-visit" role="button" draggable="false" class="govuk-button pdp-button" data-module="govuk-button">
         Go to PensionFinder 
       </a>

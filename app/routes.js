@@ -342,7 +342,6 @@ router.get('/consents/directed-find', function (req, res) {
     req.app.locals.firstPageLoad = true
     req.app.locals.listStarted = false
     req.app.locals.directedListNames =[]
-    req.app.locals.providerSearchValue
     res.render('consents/directed-find')
 })
 
@@ -443,21 +442,32 @@ router.post('/enter-your-details', function (req, res) {
     req.app.locals.lastName = ""
     req.app.locals.firstName = ""
     req.app.locals.altName = ""
+    req.app.locals.prevAddress = ""
 
-
-    let firstName = req.session.data['first-name']
     let altName = req.session.data['alt-name']
 
     let emailAddress = req.session.data['email']
+    let telNumber = req.session.data['telephone-number']
     let niNumber = req.session.data['ni-number']
-    let telNumber = req.session.data['telephone-number']    
 
+    let address1 = req.session.data['prev-address-line-1']
+    let address2 = req.session.data['prev-address-line-2']
+    let town = req.session.data['prev-address-town']
+    let county = req.session.data['prev-address-county']
+    let postcode = req.session.data['prev-address-postcode']
+    let prevAddress = address1 + ', ' + address2 + ', ' + town + ', ' + county + ', ' + postcode
+    console.log('req.session.data[prev-address-line-1] ' + req.session.data['prev-address-line-1'])
+    console.log('adress1 ' + address1)
+    console.log('prevAddress ' + prevAddress)
+
+
+    req.app.locals.prevAddress = prevAddress
     req.app.locals.emailAddress = emailAddress
     req.app.locals.niNumber = niNumber
     req.app.locals.telNumber = telNumber  
-    req.app.locals.firstName = firstName
     req.app.locals.altName = altName
 
+    req.app.locals.firstName = 'Jane'
     req.app.locals.lastName = 'Smith'
     req.app.locals.dob = '01 APR 1982'
     req.app.locals.address = '42 High Street, Reading, Berks, RG1 4WD'

@@ -94,7 +94,7 @@
       </h2>
       {% if not listStarted %}
         <p>
-          Your list of pension providers will appear here.
+          Your list of pension providers to search will appear here.
         </p>
       {% endif %}
 
@@ -110,10 +110,16 @@
         </tr>
         {% endfor %}
       </table>
+      {% if directedListNames|length > 0 %}
+        <a href="/consents/redirect-dashboard" role="button" draggable="false" class="govuk-button pdp-consents-button" data-module="govuk-button">
+          Find pensions 
+        </a>
+      {% else %}
+        <a href=# disabled="disabled" role="button" draggable="false" class="govuk-button pdp-consents-button" data-module="govuk-button">
+          Find pensions 
+        </a>
+      {% endif %}
 
-      <a href="/consents/redirect-dashboard" role="button" draggable="false" class="govuk-button pdp-consents-button" data-module="govuk-button">
-        Find pensions 
-      </a>
   </div>
 </div>
 

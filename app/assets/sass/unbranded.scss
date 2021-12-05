@@ -8,7 +8,7 @@
 @import "node_modules/govuk-frontend/govuk/settings/all";
 
 // Override the default GOV.UK Frontend font stack
-$govuk-font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+$govuk-font-family: "Roobert", sans-serif;
 
 // Override the canvas background colour, which is normally grey to blend with the GOV.UK footer.
 $govuk-canvas-background-colour: $govuk-body-background-colour;
@@ -53,30 +53,31 @@ $govuk-canvas-background-colour: $govuk-body-background-colour;
 	border-bottom: none;
 	margin-bottom: 0px;
     padding-top: 0px;
-
 }
 .pdp-header {
 //	border-bottom: 1px solid white;
 	background-color: #0f19a0;
 	width: 100%;
+	font-family: "Roobert", arial, sans-serif;
 }
 
 .pdp-header-nav {
 	font-family: "Roobert", arial, sans-serif;
-
 }
 
 .pdp-login-hello {
 	float: right;
 	padding-top: 40px;
 }
+
 .pdp-login-hello-font {
 	color: #c82a87;
 	font-size: 16px;
+	font-family: "Roobert", arial, sans-serif;
 }
-// More details link
 
-.pdp-details-link {
+// More details link
+.pdp-details-link-right {
 	text-align: right;
 }
 

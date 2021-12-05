@@ -12,7 +12,7 @@
       <form action="/enter-your-details" method="post" class="form">
         <div class="govuk-form-group">
           <div class="govuk-form-group">
-            <h1 class="govuk-heading-m">
+            <h1 class="govuk-heading-xl">
               Searching for your pensions
             </h1>
   
@@ -20,41 +20,50 @@
             <table class="govuk-table">
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">First name</th>
+                  <td class="govuk-table__cell">{{firstName}}</td>
+                </tr>                
+                <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">Last name</th>
                   <td class="govuk-table__cell">{{lastName}}</td>
                 </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Address</th>
-                  <td class="govuk-table__cell">{{address}}</td>
-                </tr>
+
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">Date of birth</th>
                   <td class="govuk-table__cell">{{dob}}</td>
                 </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Address</th>
+                  <td class="govuk-table__cell">{{address}}</td>
+                </tr>      
+
                 {% if niNumber %}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">National Insurance number</th>
                     <td class="govuk-table__cell">{{niNumber}}</td>
                   </tr>
                 {% endif %}
-                {% if firstName %}
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">First name</th>
-                    <td class="govuk-table__cell">{{firstName}}</td>
-                  </tr>
-                {% endif %}
+
                 {% if altName %}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Previous or alternative name</th>
                     <td class="govuk-table__cell">{{altName}}</td>
                   </tr>
                 {% endif %}
-                {% if emailAddress %}
+<!--
+                {% if prevAddress %}
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Previous address</th>
+                    <td class="govuk-table__cell">{{prevAddress}}</td>
+                  </tr>
+                {% endif %}
+-->                {% if emailAddress %}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Email address</th>
                     <td class="govuk-table__cell">{{emailAddress}}</td>
                   </tr>
                 {% endif %}
+
                 {% if telNumber %}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Telephone number</th>

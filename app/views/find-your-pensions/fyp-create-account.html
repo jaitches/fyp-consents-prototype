@@ -39,23 +39,23 @@
               <label class="govuk-label" for="email">
                 Email address
               </label>
-              <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" autocomplete="email" value="{{data['email']}}">
+              <input class="govuk-input" id="email" name="fyp-email" type="fyp-email" spellcheck="false" autocomplete="email" value="{{data['fyp-email']}}">
             </div>
             
             <div class="govuk-form-group">
 
               <div class="govuk-form-group">
-                <label class="govuk-label" for="password">
+                <label class="govuk-label" for="fyp-password">
                   Create a password
                 </label>
-                <input class="govuk-input" id="password" name="password" type="password" value="{{ data['password'] }}">
+                <input class="govuk-input" id="fyp-password" name="fyp-password" type="password" value="{{ data['fyp-password'] }}">
               </div>
 
               <div class="govuk-form-group">
-                <label class="govuk-label" for="password2">
+                <label class="govuk-label" for="fyp-password2">
                   Re-enter password
                 </label>
-                <input class="govuk-input" id="password2" name="password2" type="password" value="{{ data['password2'] }}">
+                <input class="govuk-input" id="fyp-password2" name="fyp-password2" type="password" value="{{ data['fyp-password2'] }}">
               </div>
             </div>
             <div class="govuk-form-group">
@@ -69,7 +69,7 @@
                       I consent to MoneyHelper storing information about my pension providers.
                     </label>
                     <div id="store-pei-hint" class="govuk-hint govuk-checkboxes__hint">
-                      You will not need to search for your pensions again if you consent to this. This is optional.
+                      You will not need to search for your pensions next time you visit. This is optional.
                     </div>
                   </div>
                   {% endif %}
@@ -80,7 +80,7 @@
                     <div class="govuk-checkboxes__item">
                       <input class="govuk-checkboxes__input" id="consent-to-use" name="consent-to-use" type="checkbox" value="consent-to-use" {{checkedUse}}>
                       <label class="govuk-label govuk-checkboxes__label" for="consent-to-use">
-                        I consent to MoneyHelper using my stored information to contact my pensions providers and find my pension details.
+                        I consent to MoneyHelper contacting my pension providers to ask for my pension details.
                       </label>
                     </div>
                   </div>
